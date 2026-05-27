@@ -1,9 +1,8 @@
-# Photo Booster One Click
+# Bulk Product Photo Renamer for Linux
 
 Rename product photos into clean numbered filenames using your chosen keyword.
 
-
-**Important:** this tool organizes/renames filenames. It does not edit or improve the actual image pixels.
+**Important:** this tool organizes/renames filenames. It does not enhance, compress, resize, color-correct, or edit the actual image pixels.
 
 ## Download
 
@@ -23,24 +22,33 @@ Online sellers, makers, photographers, and small shops that need consistent prod
 - Creates clean numbered filenames
 - Designed for simple product photo organization workflows
 
+## What it does not do
+
+- Does not enhance photo quality
+- Does not compress images
+- Does not resize images
+- Does not remove backgrounds
+- Does not color-correct photos
+- Does not edit image pixels
+
 ## Privacy / safety notes
 
 - This is a filename organization tool
-- It does not enhance, compress, resize, color-correct, or edit image pixels
+- The default workflow copies photos into a new output folder
+- Use a test folder first before running on important files
 
 ## How to open
 
 1. Download the ZIP from **Releases**.
 2. Extract/unzip it.
-3. Open the included README or launcher file inside the extracted folder.
+3. Right-click `Launch_Bulk_Product_Photo_Renamer`.
+4. Choose **Run as Program**.
 
-Some Linux systems require right-clicking the launcher and choosing **Run as Program**.
+If it does not open, install prerequisites:
 
-## Source/package notes
-
-- Helpful source or launcher files are included in this repository when available.
-- The ready-to-use customer ZIP is attached to the GitHub Release.
-- No license has been selected yet. Unless a license is added later, all rights are reserved by the author.
+```bash
+sudo apt update && sudo apt install python3 python3-tk python3-venv
+```
 
 ## Support development
 
@@ -56,5 +64,5 @@ Feedback is welcome, especially:
 
 - Did the app open successfully?
 - Was the description clear?
-- Did it solve the problem you expected it to solve?
+- Did it solve the product-photo naming problem you expected it to solve?
 - What confused you?
