@@ -9,11 +9,11 @@ ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("blue")
 
 
-class PhotoBoosterApp(ctk.CTk):
+class ProductPhotoRenamerApp(ctk.CTk):
     def __init__(self):
         super().__init__()
 
-        self.title("E-commerce Photo Booster Pro")
+        self.title("Bulk Product Photo Renamer")
         self.geometry("750x700")
 
         self.source_folder = ""
@@ -21,7 +21,7 @@ class PhotoBoosterApp(ctk.CTk):
         # Title
         self.label = ctk.CTkLabel(
             self,
-            text="E-COMMERCE PHOTO BOOSTER PRO",
+            text="BULK PRODUCT PHOTO RENAMER",
             font=ctk.CTkFont(size=24, weight="bold"),
         )
         self.label.pack(pady=20)
@@ -87,7 +87,7 @@ class PhotoBoosterApp(ctk.CTk):
         # Preview Area
         ctk.CTkLabel(
             self,
-            text="SEO Preview:",
+            text="Filename Preview:",
             font=ctk.CTkFont(size=14, weight="bold"),
         ).pack(pady=(10, 5))
 
@@ -97,12 +97,12 @@ class PhotoBoosterApp(ctk.CTk):
         # Action Button
         self.boost_btn = ctk.CTkButton(
             self,
-            text="BOOST PHOTOS",
+            text="RENAME PHOTOS",
             font=ctk.CTkFont(size=16, weight="bold"),
             fg_color="#2da44e",
             hover_color="#22863a",
             height=50,
-            command=self.execute_boost,
+            command=self.execute_rename,
         )
         self.boost_btn.pack(pady=20)
 
@@ -145,7 +145,7 @@ class PhotoBoosterApp(ctk.CTk):
                 self.preview_text.insert("end", f"{filename}  -->  {new_name}\n")
         self.preview_text.configure(state="disabled")
 
-    def execute_boost(self):
+    def execute_rename(self):
         if not self.source_folder:
             self.status_label.configure(text="❌ No folder loaded.", text_color="red")
             return
@@ -159,7 +159,7 @@ class PhotoBoosterApp(ctk.CTk):
             if f.lower().endswith((".png", ".jpg", ".jpeg", ".webp"))
         ]
         try:
-            target_dir = os.path.join(self.source_folder, "optimized_photos")
+            target_dir = os.path.join(self.source_folder, "renamed_product_photos")
             if not os.path.exists(target_dir):
                 os.makedirs(target_dir)
             files.sort()
@@ -185,5 +185,5 @@ class PhotoBoosterApp(ctk.CTk):
 
 
 if __name__ == "__main__":
-    app = PhotoBoosterApp()
+    app = ProductPhotoRenamerApp()
     app.mainloop()
