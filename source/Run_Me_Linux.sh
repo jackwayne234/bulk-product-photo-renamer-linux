@@ -1,19 +1,19 @@
 #!/bin/bash
-# PHOTO BOOSTER - PRO LINUX LAUNCHER
+# BULK PRODUCT PHOTO RENAMER - LINUX LAUNCHER
 # Optimized for Gumroad Customers
 
 # Move to the directory where this script is located
 cd "$(dirname "$0")"
 
 # --- 1. Terminal Handling + Logging ---
-LOG_FILE="${TMPDIR:-/tmp}/photo_booster_launcher.log"
+LOG_FILE="${TMPDIR:-/tmp}/product_photo_renamer_launcher.log"
 exec > >(tee -a "$LOG_FILE") 2>&1
 
 # One-click package mode: do not force-open terminal windows.
 # All output is written to $LOG_FILE for troubleshooting.
 
 echo "========================================"
-echo "   PHOTO BOOSTER - PRO LINUX"
+echo "   BULK PRODUCT PHOTO RENAMER - LINUX"
 echo "========================================"
 echo ""
 
@@ -63,7 +63,7 @@ echo "🛠️  Checking requirements (this may take a moment on first run)..."
 ./venv/bin/pip install -q -r requirements.txt
 
 # Launch the App
-echo "🚀 Launching Photo Booster..."
+echo "🚀 Launching Bulk Product Photo Renamer..."
 ./venv/bin/python app.py "$@"
 LAUNCH_EXIT=$?
 
@@ -71,13 +71,13 @@ if [ $LAUNCH_EXIT -ne 0 ]; then
     echo ""
     echo "⚠️  Python source mode exited with code $LAUNCH_EXIT."
 
-    if [ -f "PhotoBooster-x86_64.AppImage" ]; then
+    if [ -f "ProductPhotoRenamer-x86_64.AppImage" ]; then
         echo "📦 Trying AppImage fallback..."
-        chmod +x "PhotoBooster-x86_64.AppImage" 2>/dev/null || true
+        chmod +x "ProductPhotoRenamer-x86_64.AppImage" 2>/dev/null || true
         export APPIMAGE_EXTRACT_AND_RUN=1
 
-        APPIMAGE_LOG="/tmp/photo_booster_appimage_fallback.log"
-        ./PhotoBooster-x86_64.AppImage "$@" > "$APPIMAGE_LOG" 2>&1
+        APPIMAGE_LOG="/tmp/product_photo_renamer_appimage_fallback.log"
+        ./ProductPhotoRenamer-x86_64.AppImage "$@" > "$APPIMAGE_LOG" 2>&1
         APP_EXIT=$?
 
         if [ $APP_EXIT -eq 0 ]; then
