@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e
+BASE_DIR="$(cd "$(dirname "$0")" && pwd)"
+cd "$BASE_DIR/.product_photo_renamer_runtime"
+exec ./Run_Me_Linux.sh "$@"
